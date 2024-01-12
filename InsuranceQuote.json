@@ -1,0 +1,130 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/botframework-sdk/master/schemas/skills/skill-manifest-2.0.0.json",
+    "$id": "InsuranceSkillProd",
+    "name": "Andys Insurance Skill Bot",
+    "version": "1.0",
+    "description": "This is a sample insurance skill definition",
+    "publisherName": "Microsoft",
+    "privacyUrl": "https://myskill.contoso.com/privacy.html",
+    "copyright": "Copyright (c) Microsoft Corporation. All rights reserved.",
+    "license": "",
+    "iconUrl": "https://myskill.contoso.com/icon.png",
+    "tags": [
+        "sample",
+        "insurance"
+    ],
+    "endpoints": [
+        {
+            "name": "Prod",
+            "protocol": "BotFrameworkV3",
+            "description": "Prod  endpoint for SkillBot in the Americas",
+            "endpointUrl": "https://insuranceskillbottest.azurewebsites.net/api/messages",
+            "msAppId": "d24ea181-35c5-4a91-9409-e7fcaf877f8c"
+        }
+    ],
+    "activities": {
+        "checkInsurance": {
+            "description": "Checks Insurance based on insurance detail provided",
+            "type": "event",
+            "name": "CheckInsurance",
+            "value": {
+                "$ref": "#/definitions/checkInsuranceInput"
+            },
+            "resultValue": {
+                "$ref": "#/definitions/checkInsuranceOutput"
+            }
+        },
+        "updateInsurance": {
+            "description": "Updates Insurance based on details provided",
+            "type": "event",
+            "name": "UpdateInsurance",
+            "value": {
+                "$ref": "#/definitions/updateInsuranceInput"
+            },
+            "resultValue": {
+                "$ref": "#/definitions/updateInsuranceOutput"
+            }
+        },
+        "getAutoQuote": {
+            "description": "Gives you a car insurance quote",
+            "type": "event",
+            "name": "GetAutoQuote",
+            "value": {
+                "$ref": "#/definitions/getAutoQuoteInput"
+            },
+            "resultValue": {
+                "$ref": "#/definitions/getAutoQuoteOuput"
+            }
+        }
+    },
+    "definitions": {
+        "getAutoQuoteInput": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "CarInsurance": {
+                    "type": "boolean",
+                    "description": "If request is for car insurance"
+                }
+            }
+        },
+        "getAutoQuoteOuput": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "price": {
+                    "type": "number",
+                    "description": "quote price"
+                },
+                "details": {
+                    "type": "string",
+                    "description": "quote details"
+                }
+            }
+        },
+        "updateInsuranceInput": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "InsuranceType": {
+                    "type": "string",
+                    "description": "Insurance Type"
+                }
+            }
+        },
+        "updateInsuranceOutput": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "policynumber": {
+                    "type": "number",
+                    "description": "Policy number"
+                },
+                "accepted": {
+                    "type": "boolean",
+                    "description": "if the update was accepted"
+                }
+            }
+        },
+        "checkInsuranceInput": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "InsuranceDetail": {
+                    "type": "object",
+                    "description": "Insurance Detail has policyNumber and area code as members"
+                }
+            }
+        },
+        "checkInsuranceOutput": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "validity": {
+                    "type": "object",
+                    "description": "Validity has Valid and Expiration as members"
+                }
+            }
+        }
+    }
+}
