@@ -1,1 +1,63 @@
-
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/botframework-sdk/master/schemas/skills/skill-manifest-2.0.0.json",
+    "$id": "ResolveCase_AppAction",
+    "name": "ResolveCase_AppAction Skill Bot",
+    "version": "1.0",
+    "description": "This is a Resolve Case skill definition",
+    "publisherName": "Microsoft",
+    "privacyUrl": "https://myskill.contoso.com/privacy.html",
+    "copyright": "Copyright (c) Microsoft Corporation. All rights reserved.",
+    "license": "",
+    "iconUrl": "https://myskill.contoso.com/icon.png",
+    "tags": [
+        "resolve case"
+    ],
+    "endpoints": [
+        {
+            "name": "App Action Bot",
+            "protocol": "BotFrameworkV3",
+            "description": "endpoint for SkillBot",
+            "endpointUrl": "https://insuranceskillbottest.azurewebsites.net/api/messages",
+            "msAppId": "d24ea181-35c5-4a91-9409-e7fcaf877f8c"
+        }
+    ],
+    "activities": {
+        "ResolveCase": {
+            "description": "Resolve a specific customer case",
+            "type": "event",
+            "name": "ResolveCase",
+            "value": {
+                "$ref": "#/definitions/ResolveCaseInput"
+            },
+            "resultValue": {
+                "$ref": "#/definitions/ResolveCaseOutput"
+            }
+        },
+    },
+    "definitions": {
+        "ResolveCaseInput": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "1": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "2": {
+                    "type": "number",
+                    "description": ""
+                },
+            }
+        },
+        "ResolveCaseOutput": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "details": {
+                    "type": "string",
+                    "description": "results"
+                }
+            }
+        },
+    }
+}
