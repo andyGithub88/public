@@ -39,9 +39,9 @@
             "type": "object",
             "required": [],
             "properties": {
-                "1": {
-                    "type": "boolean",
-                    "description": ""
+                "record-id": {
+                    "type": "string",
+                    "description": "ID of a record to resolve"
                 },
                 "2": {
                     "type": "number",
