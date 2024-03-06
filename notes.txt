@@ -1,1 +1,4 @@
+Path: [<dyn-crm>?appid=50468365-02d6-ee11-904d-00224803d2a&pagetype=entityrecord&etn=incident&id={record-id}, "Resolve Case"]
 
+runtime parameter:
+  record-id
